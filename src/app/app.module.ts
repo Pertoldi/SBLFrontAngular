@@ -3,8 +3,8 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HeaderComponent } from './header/header.component';
-import { GameComponent } from './game/game.component';
+import { HeaderComponent } from './components/header/header.component';
+import { GameComponent } from './components/game/game.component';
 import { AccueilComponent } from './page/accueil/accueil.component';
 
 @NgModule({
