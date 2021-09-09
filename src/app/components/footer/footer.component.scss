@@ -1,0 +1,130 @@
+@import "../../../variables.scss";
+
+.section {
+
+}
+
+footer {
+	width: 100%;
+	background-color: $color-grey;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	align-items: center;
+
+	.reseaux-sociaux {
+		 width: 70%;
+		 display: flex;
+		 justify-content: space-around;
+		 margin-top: 10px;
+		 margin-bottom: 0;
+		 margin: 50px 0 25px 0;
+		 &__carte {
+			  display: flex;
+			  align-items: center;
+			  i {
+					font-size: 2em;
+			  }
+			  span {
+					margin-left: 15px;
+					justify-self: center;
+			  }
+			  &--lien {
+					display: flex;
+					align-items: center;
+					color: #212529;
+			  }
+		 }
+	}
+
+	.flex-conteneur {
+		 display: flex;
+		 flex-wrap: wrap;
+		 justify-content: space-between;
+		 width: 100%;
+		 padding-left: $marges-lateral;
+		 padding-right: $marges-lateral;
+	}
+
+	.contact {
+		 align-self: flex-start;
+		 width: 100%;
+
+		 @media (min-width: 768px) {
+			  width: 49%;
+		 }
+
+		 li {
+			  margin-bottom: 25px;
+			  a {
+					color: #212529;
+					overflow: hidden;
+					@media (max-width: 400px) {
+						 font-size: 0.95rem;
+					}
+			  }
+		 }
+	}
+
+	.partenaires {
+		 width: 100%;
+		 display: flex;
+		 flex-direction: column;
+		 @media (min-width: 768px) {
+			  width: 49%;
+		 }
+		 &-liens {
+			  margin-bottom: 7px;
+		 }
+		 ul {
+			  li {
+					display: flex;
+					justify-content: space-between;
+					align-items: center;
+					height: auto;
+					margin-bottom: 5px;
+					img {
+						 width: 110px;
+						 height: auto;
+					}
+			  }
+		 }
+	}
+
+	.bandeSombre {
+		 width: 100%;
+		 height: 45px;
+		 background-color: darken($color-grey, 15);
+		 display: flex;
+		 justify-content: center;
+		 align-items: center;
+	}
+
+	.div-separator {
+		 width: 100%;
+		 height: 1px;
+		 background-color: #000;
+		 margin-bottom: 10px;
+		 @media (min-width: 768px) {
+			  height: 255px;
+			  width: 1px;
+			  // height: 100%; ne marche pas car le parent à aussi une hauteur relative cf flexbox
+			  // Gestion de la hauteur dans header.js , car pas envie de link un footer.js que pour gérer dynamiquement la hauteur de cet élément
+		 }
+	}
+
+	.copyright {
+		 font-size: 0.8rem;
+		 &__lien {
+			  color: #212529;
+			  font-size: 0.8rem;
+			  &:hover {
+					color: white;
+			  }
+		 }
+	}
+
+	a {
+		 color: black !important;
+	}
+}
