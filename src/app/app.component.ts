@@ -6,5 +6,5 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  title = 'SBL-FrontEnd';
+  title = 'Skateboard Brotherhood Lozere';
 }
