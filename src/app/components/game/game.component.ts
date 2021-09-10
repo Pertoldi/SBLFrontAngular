@@ -7,9 +7,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GameComponent implements OnInit {
 
-  constructor() { }
+  constructor() {
+    console.log('CONSTRUCTOR GAME');
+
+  }
 
   ngOnInit(): void {
+    this.loadScript()
+
   }
+
+  public loadScript() {
+    let body = <HTMLDivElement> document.body;
+    let script = document.createElement('script');
+    script.innerHTML = '';
+    script.src = '../../../vendor/scriptGame.js';
+    script.async = true;
+    script.defer = true;
+    body.appendChild(script);
+}
 
 }

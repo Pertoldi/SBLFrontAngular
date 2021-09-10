@@ -1,4 +1,6 @@
-window.addEventListener("DOMContentLoaded", (event) => {
+var gamePage = 'http://localhost:4200/' //to be sure we are on the right page
+
+setTimeout(() => {
     if (!!document.getElementById("myCanvas")) {
         // SELECT CVS
         const canvas = document.getElementById("myCanvas");
@@ -58,17 +60,18 @@ window.addEventListener("DOMContentLoaded", (event) => {
             update() {
                 if (state.current == state.game) {
                     this.x = this.x - 3;
-                    //quand le skateur touche l'obstacle et qu'il n'a pas une frame de saut
-                    if (skateur.destinationX == this.x || skateur.destinationX == (this.x + 1)) {
+                    //quand le skateur touche l'obstacle et qu'il n'a pas une frame de saut 
+                    // 3 possibilité car l'obstacle bouje de 3 pixels à chaque update
+                    if (skateur.destinationX == this.x || skateur.destinationX == (this.x + 1) || skateur.destinationX == (this.x + 2)) {
                         console.log('OBSTACLE !');
                         console.log('Frame du skateur :', skateur.frame);
-                        if (skateur.frame <= 5 || skateur.frame >= 12) {
-                            if (skateur.frame >= 9) {
+                        if (skateur.frame < 5 || skateur.frame >= 12) {
+                            if (skateur.frame >= 12) {
                                 setTimeout(() => {
                                     state.current = state.over;
                                     alert(`Votre score: ${score}`);
                                     score = 0;
-                                }, 150);
+                                }, 100);
                             } else {
                                 setTimeout(() => {
                                     state.current = state.over;
@@ -78,6 +81,7 @@ window.addEventListener("DOMContentLoaded", (event) => {
                             }
                         } else {
                             score += 1;
+                            console.log('score is :', score)
                         }
                     }
                 }
@@ -212,11 +216,16 @@ window.addEventListener("DOMContentLoaded", (event) => {
 
         // LOOP
         function loop() {
-            update();
-            draw();
-            frames++;
-            requestAnimationFrame(loop);
+            if(window.location.href == gamePage) {
+                update();
+                draw();
+                frames++;
+                requestAnimationFrame(loop);
+            } else {
+                console.log('stop game!');
+                return
+            }
         }
         loop();
     }
-});
+}, 10);
