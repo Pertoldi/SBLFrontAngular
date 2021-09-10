@@ -66,19 +66,13 @@ setTimeout(() => {
                         console.log('OBSTACLE !');
                         console.log('Frame du skateur :', skateur.frame);
                         if (skateur.frame < 5 || skateur.frame >= 12) {
-                            if (skateur.frame >= 12) {
-                                setTimeout(() => {
-                                    state.current = state.over;
-                                    alert(`Votre score: ${score}`);
-                                    score = 0;
-                                }, 100);
-                            } else {
-                                setTimeout(() => {
-                                    state.current = state.over;
-                                    alert(`Votre score: ${score}`);
-                                    score = 0;
-                                }, 100);
-                            }
+
+                            setTimeout(() => {
+                                state.current = state.over;
+                                alert(`Votre score: ${score}`);
+                                score = 0;
+                            }, 50);
+
                         } else {
                             score += 1;
                             console.log('score is :', score)
@@ -216,7 +210,7 @@ setTimeout(() => {
 
         // LOOP
         function loop() {
-            if(window.location.href == gamePage) {
+            if (window.location.href == gamePage) {
                 update();
                 draw();
                 frames++;
