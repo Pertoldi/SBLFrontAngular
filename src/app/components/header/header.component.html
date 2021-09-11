@@ -8,7 +8,8 @@
 		<li> <a href="index.html#evenement">Evènement</a> </li>
 		<li> <a href="./skateparkConseil.html">skatepark - conception / conseil</a> </li>
 		<li> <a href="index.html#contact">Contact</a> </li>
-		<li> <a routerLink="login" id="dynamicLabel">Se connecter</a> </li>
+		<li  *ngIf="isAuth === false"> <a routerLink="login">Se connecter</a> </li>
+		<li *ngIf="isAuth === true"(click)="onDisconnect()"> <a routerLink="login">Déconnection </a> </li>
 	</ul>
 </nav>
 <label for="nav-checkbox" class="nav-checkbox-label">

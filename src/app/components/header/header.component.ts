@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { UserService } from 'src/app/services/user.service';
 
 @Component({
   selector: 'app-header',
@@ -6,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
+  isAuth: boolean = false
+  isAuthSubscription!:Subscription
 
-  constructor() { }
+  constructor(private userService: UserService) { }
 
   ngOnInit(): void {
+    this.isAuthSubscription = this.userService.isAuthSubject.subscribe(
+			(isAuth: boolean) => {
+				this.isAuth = isAuth
+			}, (error) => {
+				throw error
+			}
+		)
+  }
+
+  onDisconnect() {
+    this.userService.setIsAuthToFalse(false)
   }
 
 }
