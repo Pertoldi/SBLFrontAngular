@@ -1,0 +1,28 @@
+.inscription-bandeau {
+	width: 100%;
+	background-image: linear-gradient(112.5deg, rgb(199, 149, 37) 0%, rgb(199, 149, 37) 2%,rgb(202, 137, 37) 2%, rgb(202, 137, 37) 10%,rgb(205, 124, 37) 10%, rgb(205, 124, 37) 38%,rgb(208, 112, 37) 38%, rgb(208, 112, 37) 64%,rgb(210, 100, 36) 64%, rgb(210, 100, 36) 66%,rgb(213, 87, 36) 66%, rgb(213, 87, 36) 78%,rgb(216, 75, 36) 78%, rgb(216, 75, 36) 100%),linear-gradient(157.5deg, rgb(199, 149, 37) 0%, rgb(199, 149, 37) 2%,rgb(202, 137, 37) 2%, rgb(202, 137, 37) 10%,rgb(205, 124, 37) 10%, rgb(205, 124, 37) 38%,rgb(208, 112, 37) 38%, rgb(208, 112, 37) 64%,rgb(210, 100, 36) 64%, rgb(210, 100, 36) 66%,rgb(213, 87, 36) 66%, rgb(213, 87, 36) 78%,rgb(216, 75, 36) 78%, rgb(216, 75, 36) 100%),linear-gradient(67.5deg, rgb(199, 149, 37) 0%, rgb(199, 149, 37) 2%,rgb(202, 137, 37) 2%, rgb(202, 137, 37) 10%,rgb(205, 124, 37) 10%, rgb(205, 124, 37) 38%,rgb(208, 112, 37) 38%, rgb(208, 112, 37) 64%,rgb(210, 100, 36) 64%, rgb(210, 100, 36) 66%,rgb(213, 87, 36) 66%, rgb(213, 87, 36) 78%,rgb(216, 75, 36) 78%, rgb(216, 75, 36) 100%),linear-gradient(90deg, rgb(65, 48, 207),rgb(202, 204, 121)); background-blend-mode:overlay,overlay,overlay,normal;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	margin-top: 25px;
+	padding: 50px 0 50px;
+	font-size: larger;
+	box-shadow: 0 5px 10px rgb(155, 155, 155);
+	& span {
+		color: black;
+		margin-bottom: 7px;
+	}
+	& a {
+		color: black;
+		overflow: hidden;
+		@media (max-width: 400px) {
+			width: 365px;
+		}
+		@media (max-width: 365px) {
+			width: 345px;
+		}
+		&:hover {
+			color: yellow;
+		}
+	}
+}

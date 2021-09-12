@@ -9,6 +9,8 @@ import { AccueilComponent } from './page/accueil/accueil.component';
 import { LoginComponent } from './page/login/login.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { HttpClientModule } from '@angular/common/http';
+import { BandeauPresentationComponent } from './components/bandeau-presentation/bandeau-presentation.component';
+import { PresentationComponent } from './components/presentation/presentation.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +19,9 @@ import { HttpClientModule } from '@angular/common/http';
     GameComponent,
     AccueilComponent,
     LoginComponent,
-    FooterComponent
+    FooterComponent,
+    BandeauPresentationComponent,
+    PresentationComponent
   ],
   imports: [
     BrowserModule,

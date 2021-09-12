@@ -63,7 +63,6 @@ export class UserService {
       const headers = new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
       this.http.post(`${this.serverNode}/api/auth/login`, JSON.stringify({ email, password }), { 'headers': headers }).subscribe(
         (res: any) => {
-          console.log(res);
           sessionStorage.setItem('token', res.token)
           sessionStorage.setItem('userId', res.userId)
           this.isAuth = true
@@ -82,11 +81,9 @@ export class UserService {
   createNewUser(lastName: string, firstName: string, address: string, city: string, email: string, password: string) {
     return new Promise<any>((resolve, reject) => {
       const headers = new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
-      console.log('TEST');
 
       this.http.post(`${this.serverNode}/api/auth/signup`, JSON.stringify({ lastName, firstName, address, city, email, password }), { 'headers': headers }).subscribe(
         (res: any) => {
-          console.log(res);
           alert('Votre compte à bien été créer !');
           resolve(res)
         },

@@ -1,4 +1,4 @@
-var gamePage = 'http://localhost:4200/' //to be sure we are on the right page
+var regexGamePage = /[http:\/\/localhost:4200\/][#]*/ //to be sure we are on acceuil
 
 setTimeout(() => {
     if (!!document.getElementById("myCanvas")) {
@@ -9,7 +9,6 @@ setTimeout(() => {
         // GAMES VARS AND CONSTS
         let frames = 0;
         let score = 0;
-
 
         // Menu START
         const spriteStart = new Image();
@@ -210,7 +209,7 @@ setTimeout(() => {
 
         // LOOP
         function loop() {
-            if (window.location.href == gamePage) {
+            if (regexGamePage.test(window.location.href)) {
                 update();
                 draw();
                 frames++;
