@@ -8,17 +8,15 @@ import { TeamService } from 'src/app/services/team.service';
 })
 export class TeamComponent implements OnInit {
 
-  @ViewChild('dynamicTeamCard') dynamicTeamCard!: ElementRef;
+  @ViewChild('loaderTeamCard') loader!: ElementRef;
   teamCard: any
   constructor(private teamService: TeamService) { }
 
 
   async ngOnInit() {
     this.teamService.getTeamCard().then(async (serverTeamCard) => {
-      //TODO stop the spinner
-      this.teamCard = serverTeamCard
-
+        this.teamCard = serverTeamCard
+        this.loader.nativeElement.classList.add('disable-loader-spinner')  
     })
   }
-
 }
