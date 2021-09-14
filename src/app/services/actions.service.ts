@@ -23,4 +23,18 @@ export class ActionsService {
     )
   }
 
+  getOneAction(id: string) {
+    return new Promise<any>(
+      (resolve, reject) => {
+        this.http.get(`${this.serverNode}/api/event/${id}`).subscribe(
+          (res) => {
+            resolve(res)
+          },
+          (error) => {
+            reject(error)
+          }
+        )
+      }
+    )
+  }
 }
