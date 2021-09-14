@@ -12,7 +12,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { BandeauPresentationComponent } from './components/acceuil/bandeau-presentation/bandeau-presentation.component';
 import { PresentationComponent } from './components/acceuil/presentation/presentation.component';
 import { TeamComponent } from './components/acceuil/team/team.component';
-import { LoaderSpinnerComponent } from './components/loader-spinner/loader-spinner.component';
+import { ActionsComponent } from './components/acceuil/actions/actions.component';
+import { PageActionComponent } from './page/page-action/page-action.component';
+
 
 @NgModule({
   declarations: [
@@ -25,7 +27,8 @@ import { LoaderSpinnerComponent } from './components/loader-spinner/loader-spinn
     BandeauPresentationComponent,
     PresentationComponent,
     TeamComponent,
-    LoaderSpinnerComponent,
+    ActionsComponent,
+    PageActionComponent,
   ],
   imports: [
     BrowserModule,
