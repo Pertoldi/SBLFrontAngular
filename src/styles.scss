@@ -87,3 +87,24 @@ a:link ,a:visited, a:hover, a:focus, a:active {
 	color: #FFF;
 	transition: color 0.2s ease-in-out;
 }
+
+/* STYLE GLOBAL*/
+
+.marges-lateral {
+	margin: 0 15px 0 15px;
+}
+
+@media (min-width: 768px) {
+	.marges-lateral {
+		margin: 0 35px 0 35px;
+	}
+}
+
+
+.underline-title {
+	width: 100%;
+	height: 1px;
+	background-color: #000;
+	margin-top: 15px;
+	margin-bottom: 35px;
+}

@@ -1,0 +1,217 @@
+#dynamicTeamCard {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	column-gap: 15px;
+  row-gap: 40px;
+	@media (min-width: 500px) {
+		 column-gap: 50px;
+	}
+	h2 {
+		 width: 100%;
+	}
+}
+
+/* CARTE CREER DANS LE BAC A SABLE d'ou css et pas scss */
+
+.container-card {
+  position: relative;
+  width: 180px;
+  height: 250px;
+  flex-shrink: 0;
+  cursor: pointer;
+  border-radius: 3px;
+  line-height: 1rem;
+}
+
+.card {
+  position: relative;
+  overflow: hidden;
+}
+
+.card-img {
+  object-fit: cover;
+  // background-size: cover;
+  // background-origin: border-box;
+  // background-position: center;
+  width: 180px;
+  height: 250px;
+  border-radius: 3px;
+  transform: scale(1);
+  transition: transform ease-out 300ms;
+}
+
+.bloc-focus-top, .bloc-focus-bottom {
+  position: absolute;
+  z-index: -1;
+  width: 130px;
+  height: 130px;
+  border-radius: 3px;
+}
+
+.bloc-focus-top {
+  background: #536976;
+  top: 0;
+  left: 0;
+  transform: translate(0,0);
+  transition: transform ease-in 200ms;
+}
+
+.bloc-focus-bottom {
+  background: #292E49;
+  bottom: 0;
+  right: 0;
+  transform: translate(0,0);
+  transition: transform ease-in 200ms;
+}
+
+.bloc-content-show {
+  position: absolute;
+	top: 250px;
+  width: 100%;
+  height: 75px;
+  z-index: 99;
+  border-radius: 0 0 5px 5px;
+  background-image: repeating-linear-gradient(90deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 60px),repeating-linear-gradient(0deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 60px),repeating-linear-gradient(0deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 10px),repeating-linear-gradient(90deg, hsla(57,0%,42%,0.09) 0px, hsla(57,0%,42%,0.09) 1px,transparent 1px, transparent 10px),linear-gradient(90deg, rgb(20,20,20),rgb(20,20,20));
+  transform: translateY(0);
+  transition: transform ease-in 200ms;
+  p {
+	  margin: 5px 7px 0;
+  }
+}
+
+.bloc-content-show h2 {
+  margin: 5px 5px 0;
+  font-size: 1rem;
+}
+
+/* ============ TOUTES LES ANIMATIONS ============ */
+
+.card:hover .card-img{
+  transform: scale(1.2);
+  transition: transform ease-out 200ms;
+}
+
+.card:hover .bloc-content-show {
+  transform: translateY(-75px);
+  transition: transform ease-out 200ms;
+}
+
+.card:hover ~ .bloc-focus-top {
+  transform: translate(-15px,-15px);
+  transition: transform ease-out 200ms;
+}
+
+.card:hover ~ .bloc-focus-bottom {
+  transform: translate(15px,15px);
+  transition: transform ease-out 200ms;
+}
+
+
+/* card text */
+
+.card--text {
+  position: absolute;
+  border: solid rgb(68, 68, 68) 2px;
+  border-radius: 15px;
+  z-index: 99;
+  font-size: 0.9rem;
+  background-color: white;
+  padding: 5px;
+  margin-top: 15px;
+  white-space : pre-wrap;// la balise pre rend un text tel quel
+  //pre-wrap permet d'ajouter des retour à la ligne pour fit dans son container
+  display: none;
+  transform: display ease 1.5s;
+  &::before {
+	  position: absolute;
+	  top: -14px;
+	  left: 45px;
+	  content: "";
+	  display : inline-block;
+	  height : 0;
+	  width : 0;
+	  border-right : 13px solid transparent;
+	  border-bottom : 13px solid rgb(68, 68, 68);
+	  border-left : 13px solid transparent;
+  }
+}
+
+.container-card:hover .card--text {
+  display: block;
+  left: -30px;
+  width: 240px;
+  height: auto;
+  top: 250px;
+  transform: display ease 1.5s;
+}
+
+/* LOADER SPINNER*/
+
+.loader-container {
+	height: 4em;
+}
+
+.loader,
+.loader::before,
+.loader::after {
+	background: #000000;
+	-webkit-animation: load1 1s infinite ease-in-out;
+	animation: load1 1s infinite ease-in-out;
+	width: 1em;
+	height: 4em;
+}
+.loader {
+	color: #000000;
+	text-indent: -9999em;
+	margin: 88px auto;
+	position: relative;
+	font-size: 11px;
+	-webkit-transform: translateZ(0);
+	-ms-transform: translateZ(0);
+	transform: translateZ(0);
+	-webkit-animation-delay: -0.16s;
+	animation-delay: -0.16s;
+}
+.loader::before,
+.loader::after {
+	position: absolute;
+	top: 0;
+	content: "";
+}
+.loader::before {
+	left: -1.5em;
+	-webkit-animation-delay: -0.32s;
+	animation-delay: -0.32s;
+}
+.loader::after {
+	left: 1.5em;
+}
+@-webkit-keyframes load1 {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 0;
+		height: 4em;
+	}
+	40% {
+		box-shadow: 0 -2em;
+		height: 5em;
+	}
+}
+@keyframes load1 {
+	0%,
+	80%,
+	100% {
+		box-shadow: 0 0;
+		height: 4em;
+	}
+	40% {
+		box-shadow: 0 -2em;
+		height: 5em;
+	}
+}
+
+.disable-loader-spinner {
+	display: none;
+}

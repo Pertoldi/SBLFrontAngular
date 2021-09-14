@@ -14,13 +14,13 @@ export class GameComponent implements OnInit {
   }
 
   public loadScript() {
-    let body = <HTMLDivElement> document.body;
+    let body = <HTMLDivElement>document.body;
     let script = document.createElement('script');
     script.innerHTML = '';
     script.src = '../../../vendor/scriptGame.js';
     script.async = true;
     script.defer = true;
     body.appendChild(script);
-}
+  }
 
 }

@@ -1,0 +1,54 @@
+<section class="evenement section" id="action">
+	<h2>Actions</h2>
+	<div class="underline-title"></div>
+	<!-- Loader Spinner -->
+	<div class="loader-container" #loaderActions>
+		<div class="loader">Loading...</div>
+	</div>
+	<div class="container my-4">
+		<!--Carousel Wrapper-->
+		<div id="multi-item-example" class="carousel slide carousel-multi-item" data-interval="false">
+
+			<!--Slides-->
+			<div class="carousel-inner" role="listbox" id="carousel-inner">
+
+				<div class="carousel-item"  *ngFor="let bloc of blocActions; let index = index" [ngClass]="isActive(index)">
+					<div class="row">
+
+						<div class="col-md-4" *ngFor="let action of bloc">
+							<div class="card mb-4">
+								<img class="card-img-top"
+									src="{{action.imageCardUrl}}"
+									alt="Card image cap">
+								<div class="card-body">
+									<div class="card__flexAlign">
+										<h3 class="card-title">{{action.title}}</h3> <span class="card__date">{{action.date}}</span>
+									</div>
+									<p class="card-text">{{action.description}}
+									</p>
+									<a class="btn btn-dark mt-3" routerLink="action/{{action._id}}">Voir</a>
+								</div>
+							</div>
+						</div>
+
+					</div>
+				</div>
+
+				<a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#multi-item-example" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+
+			</div>
+			<!--/.Slides-->
+
+		</div>
+		<!--/.Carousel Wrapper-->
+	</div>
+
+
+</section>
