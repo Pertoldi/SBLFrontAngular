@@ -1,1 +1,46 @@
-<p>page-action works!</p>
+<div class="backgroundBlackEvent"></div>
+
+<!-- Slider d'images -->
+<div class="container" id="ancreBackgroundBlack">
+	<div class="row mb-4">
+		<div class="col">
+			<div id="carouselControls" class="carousel slide">
+				<div class="carousel-inner slide" id="carousel-inner">
+
+					<div class="carousel-item"  *ngFor="let slide of action.slider; let index = index" [ngClass]="isActive(index)">
+						<img
+							src="{{slide}}"
+							class="d-block w-100" alt="Images du slider de l'événement correspondant">
+					</div>
+
+
+				</div>
+				<a class="carousel-control-prev" href="#carouselControls" role="button" data-slide="prev"
+					id="btn-carousel-prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Précédent</span>
+				</a>
+				<a class="carousel-control-next" href="#carouselControls" role="button" data-slide="next"
+					id="btn-carousel-next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Suivant</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="marges-lateral">
+
+	<div class="event-container">
+		<h1 id="h1" class="mb-1">{{action.title}}</h1>
+		<div id="date" class="date mb-4">{{action.date}}</div>
+
+		<pre id="textEvenement" class="textEvenement">{{action.textEvent}}</pre>
+
+		<div class="underline-title"></div>
+
+		<div id="containerVideo" class="containerVideo"></div>
+	</div>
+
+</div>

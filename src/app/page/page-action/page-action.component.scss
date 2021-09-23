@@ -1,0 +1,118 @@
+.backgroundBlackEvent {
+	position: absolute;
+	background-image: radial-gradient(
+			circle at 11% 37%,
+			hsla(251, 0%, 28%, 0.05) 0%,
+			hsla(251, 0%, 28%, 0.05) 50%,
+			transparent 50%,
+			transparent 56%,
+			transparent 56%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 82% 7%,
+			hsla(251, 0%, 28%, 0.05) 0%,
+			hsla(251, 0%, 28%, 0.05) 46%,
+			transparent 46%,
+			transparent 88%,
+			transparent 88%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 81% 79%,
+			hsla(251, 0%, 28%, 0.05) 0%,
+			hsla(251, 0%, 28%, 0.05) 33%,
+			transparent 33%,
+			transparent 89%,
+			transparent 89%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 68% 96%,
+			hsla(251, 0%, 28%, 0.05) 0%,
+			hsla(251, 0%, 28%, 0.05) 8%,
+			transparent 8%,
+			transparent 26%,
+			transparent 26%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 69% 20%,
+			hsla(251, 0%, 28%, 0.05) 0%,
+			hsla(251, 0%, 28%, 0.05) 84%,
+			transparent 84%,
+			transparent 86%,
+			transparent 86%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 49% 22%,
+			hsla(251, 0%, 28%, 0.05) 0%,
+			hsla(251, 0%, 28%, 0.05) 71%,
+			transparent 71%,
+			transparent 78%,
+			transparent 78%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 23% 60%,
+			hsla(251, 0%, 28%, 0.05) 0%,
+			hsla(251, 0%, 28%, 0.05) 6%,
+			transparent 6%,
+			transparent 40%,
+			transparent 40%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 86% 33%,
+			hsla(251, 0%, 28%, 0.05) 0%,
+			hsla(251, 0%, 28%, 0.05) 13%,
+			transparent 13%,
+			transparent 98%,
+			transparent 98%,
+			transparent 100%
+		),
+		radial-gradient(
+			circle at 38% 60%,
+			hsla(251, 0%, 28%, 0.05) 0%,
+			hsla(251, 0%, 28%, 0.05) 15%,
+			transparent 15%,
+			transparent 61%,
+			transparent 61%,
+			transparent 100%
+		),
+		linear-gradient(0deg, hsl(167, 0%, 6%), hsl(167, 0%, 6%));
+	z-index: -99;
+	width: 100%;
+	height: 0px;
+	@media (min-width: 470px) {
+		height: 550px;
+	}
+}
+
+.carousel-inner {
+	.carousel-item {
+		img {
+			max-height: 550px;
+			object-fit: contain;
+			min-height: 550px;
+		}
+	}
+}
+
+.event-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	line-height: 1.7rem;
+	.textEvenement {
+		max-width: 800px;
+		text-align: center;
+		white-space : pre-wrap;
+	}
+	.date {
+		font-size: 0.9rem;
+		text-align: center;
+	}
+}
