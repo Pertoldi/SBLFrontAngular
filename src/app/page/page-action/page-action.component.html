@@ -7,24 +7,6 @@
 			<div id="carouselControls" class="carousel slide">
 				<div class="carousel-inner slide" id="carousel-inner">
 
-
-
-					<!-- <div class="carousel-item active">
-						<img
-							src="https://skateboard-lozere-bucket.s3.eu-west-3.amazonaws.com/20210711_1841031626245879583.jpg"
-							class="d-block w-100" alt="Images du slider de l'événement correspondant">
-					</div>
-					<div class="carousel-item">
-						<img
-							src="https://skateboard-lozere-bucket.s3.eu-west-3.amazonaws.com/20210711_1842021626245879985.jpg"
-							class="d-block w-100" alt="Images du slider de l'événement correspondant">
-					</div>
-					<div class="carousel-item">
-						<img
-							src="https://skateboard-lozere-bucket.s3.eu-west-3.amazonaws.com/20210711_1842301626245880551.jpg"
-							class="d-block w-100" alt="Images du slider de l'événement correspondant">
-					</div> -->
-
 					<div class="carousel-item"  *ngFor="let slide of action.slider; let index = index" [ngClass]="isActive(index)">
 						<img
 							src="{{slide}}"

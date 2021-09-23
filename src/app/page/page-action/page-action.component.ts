@@ -9,20 +9,28 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class PageActionComponent implements OnInit {
   param: any
-  action: any
+  action: any = {
+    title: "",
+    date: "",
+    textEvent: "",
+    slider: "",
+    id: ""
+  }
+
   constructor(private actionsService: ActionsService, route: ActivatedRoute) {
     route.params.subscribe(params => {
       this.param = params.id
       console.log('params is :', params.id)
     })
 
+    this.actionsService.getOneAction(this.param).then(action => {
+      this.action = action
+    })
+
   }
 
   ngOnInit(): void {
-    this.actionsService.getOneAction(this.param).then(action => {
-      this.action = action
-      console.log('action is :', action)
-    })
+
   }
 
   isActive(index: number) {
