@@ -1,0 +1,16 @@
+.event-container {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	line-height: 1.7rem;
+	.textEvenement {
+		max-width: 800px;
+		text-align: center;
+		white-space : pre-wrap;
+	}
+	.date {
+		font-size: 0.9rem;
+		text-align: center;
+	}
+}
