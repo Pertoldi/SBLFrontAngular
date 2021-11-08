@@ -8,6 +8,7 @@
 		<li> <a routerLink="" fragment="action">Actions</a> </li>
 		<li> <a routerLink="skateparkConseil">skatepark - conception / conseil</a> </li>
 		<li> <a routerLink="" fragment="contact">Contact</a> </li>
+		<li > <a routerLink="login">backlog</a> </li>
 		<li *ngIf="isAuth === false"> <a routerLink="login">Se connecter</a> </li>
 		<li *ngIf="isAuth === true" (click)="onDisconnect()"> <a routerLink="">Déconnection </a> </li>
 	</ul>

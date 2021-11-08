@@ -15,6 +15,7 @@ import { TeamComponent } from './components/acceuil/team/team.component';
 import { ActionsComponent } from './components/acceuil/actions/actions.component';
 import { PageActionComponent } from './page/page-action/page-action.component';
 import { SkateparkConseilComponent } from './page/skatepark-conseil/skatepark-conseil.component';
+import { UserBackOfficeComponent } from './page/user-back-office/user-back-office.component';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { SkateparkConseilComponent } from './page/skatepark-conseil/skatepark-co
     ActionsComponent,
     PageActionComponent,
     SkateparkConseilComponent,
+    UserBackOfficeComponent,
   ],
   imports: [
     BrowserModule,

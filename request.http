@@ -1,0 +1,35 @@
+post http://localhost:3000/api/auth/signup
+content-type: application/json
+Accept: application/json
+
+{
+	"lastName": "a",
+	"firstName": "a",
+	"address": "a",
+	"city": "a",
+	"email": "a",
+	"password": "a"
+
+}
+
+###
+
+post http://localhost:3000/api/auth/login
+content-type: application/json
+Accept: application/json
+
+{
+		"email": "a",
+	"password": "a"
+}
+
+###
+post http://localhost:3000/api/auth/isConnect
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDQ2MWNhM2EwZGUyMTM3ODg3NjljZjUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2MzEyODg4MzcsImV4cCI6MTYzMTM3NTIzN30.0CSmNXD6xvjOC2H2mBrscF_yzeHR7pqO9yYF31W984A
+content-type: application/json
+Accept: application/json
+
+{
+	"token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VySWQiOiI2MDQ2MWNhM2EwZGUyMTM3ODg3NjljZjUiLCJpc0FkbWluIjp0cnVlLCJpYXQiOjE2MzEyODg4MzcsImV4cCI6MTYzMTM3NTIzN30.0CSmNXD6xvjOC2H2mBrscF_yzeHR7pqO9yYF31W984A",
+	"userId": "60461ca3a0de213788769cf5"
+}
