@@ -14,6 +14,7 @@ import { PresentationComponent } from './components/acceuil/presentation/present
 import { TeamComponent } from './components/acceuil/team/team.component';
 import { ActionsComponent } from './components/acceuil/actions/actions.component';
 import { PageActionComponent } from './page/page-action/page-action.component';
+import { SkateparkConseilComponent } from './page/skatepark-conseil/skatepark-conseil.component';
 
 
 @NgModule({
@@ -29,6 +30,7 @@ import { PageActionComponent } from './page/page-action/page-action.component';
     TeamComponent,
     ActionsComponent,
     PageActionComponent,
+    SkateparkConseilComponent,
   ],
   imports: [
     BrowserModule,

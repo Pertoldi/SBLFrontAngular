@@ -58,10 +58,10 @@ setTimeout(() => {
             }
             update() {
                 if (state.current == state.game) {
-                    this.x = this.x - 3;
+                    this.x = this.x - 5; //Vitesse du bloc Obstacle soit: n pixel
                     //quand le skateur touche l'obstacle et qu'il n'a pas une frame de saut 
-                    // 3 possibilité car l'obstacle bouje de 3 pixels à chaque update
-                    if (skateur.destinationX == this.x || skateur.destinationX == (this.x + 1) || skateur.destinationX == (this.x + 2)) {
+                    // n possibilité car l'obstacle bouje de n pixels à chaque update
+                    if (skateur.destinationX == this.x || skateur.destinationX == (this.x + 1) || skateur.destinationX == (this.x + 2) || skateur.destinationX == (this.x + 3) || skateur.destinationX == (this.x + 4)) {
                         console.log('OBSTACLE !');
                         console.log('Frame du skateur :', skateur.frame);
                         if (skateur.frame < 5 || skateur.frame >= 12) {
@@ -169,7 +169,7 @@ setTimeout(() => {
 
             update: function () {// fait l'animation
                 if (this.Ijump == true) {
-                    this.period = 6;
+                    this.period = 4;// donne la vitesse de saut du skateur
                     if (state.current == state.game && frames % this.period == 0) {
                         this.frame += 1;
                     }

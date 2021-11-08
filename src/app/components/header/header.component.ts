@@ -27,6 +27,7 @@ export class HeaderComponent implements OnInit {
     this.userService.setIsAuthToFalse(false)
     sessionStorage.removeItem('token')
     sessionStorage.removeItem('userId')
+    alert('Vous êtes déconnecté !')
   }
 
 }

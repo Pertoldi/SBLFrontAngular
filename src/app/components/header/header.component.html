@@ -6,10 +6,10 @@
 		<li> <a routerLink="">Acceuil</a> </li>
 		<li> <a routerLink="" fragment="team">Team</a> </li>
 		<li> <a routerLink="" fragment="action">Actions</a> </li>
-		<li> <a routerLink="">skatepark - conception / conseil</a> </li>
+		<li> <a routerLink="skateparkConseil">skatepark - conception / conseil</a> </li>
 		<li> <a routerLink="" fragment="contact">Contact</a> </li>
-		<li  *ngIf="isAuth === false"> <a routerLink="login">Se connecter</a> </li>
-		<li *ngIf="isAuth === true"(click)="onDisconnect()"> <a routerLink="login">Déconnection </a> </li>
+		<li *ngIf="isAuth === false"> <a routerLink="login">Se connecter</a> </li>
+		<li *ngIf="isAuth === true" (click)="onDisconnect()"> <a routerLink="">Déconnection </a> </li>
 	</ul>
 </nav>
 <label for="nav-checkbox" class="nav-checkbox-label">
@@ -18,6 +18,5 @@
 
 <div class="logo">
 	<!-- LOGO possition absolute -->
-	<img class="logo" src="assets/logo/logoAssoNoir.jpg"
-		alt="Logo de l'association de skate Skateboard Brother Lozère">
+	<img class="logo" src="assets/logo/logoAssoNoir.jpg" alt="Logo de l'association de skate Skateboard Brother Lozère">
 </div>
