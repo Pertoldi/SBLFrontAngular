@@ -9,23 +9,7 @@
 	<!-- Team card from server -->
 	<div class="team-card-container">
 
-		<div class="portrait" *ngFor="let card of teamCard">
-			<div class="container-card">
-				<div class="card">
-					<img class="card-img" id="card-img0"
-						src ="{{card.urlPortrait}}">
-
-					<div class="bloc-content-show">
-						<h2 class="text-light">{{card.prenom}}</h2>
-						<h2 class="text-light">{{card.nom}}</h2>
-						<p class="text-light text-right">{{card.title}}</p>
-					</div>
-				</div>
-				<pre class="card--text" *ngIf="card.presentationText != 'undefined'">{{card.presentationText}}</pre>
-				<div class="bloc-focus-top"></div>
-				<div class="bloc-focus-bottom"></div>
-			</div>
-		</div>
+		<app-team-card *ngFor="let card of teamCard" [card]="card"></app-team-card>
 
 	</div>
 

@@ -14,6 +14,6 @@
 		<div class="bloc-focus-bottom"></div>
 	</div>
 
-	<button class="btn btn-danger my-3" id="{{card._id}}" (click)="onBtnDelete($event)">Supprimer</button>
+	<button *ngIf="button == true" class="btn btn-danger my-3" id="{{card._id}}" (click)="onBtnDelete($event)">Supprimer</button>
 </div>
 
