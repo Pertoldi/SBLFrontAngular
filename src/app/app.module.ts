@@ -18,6 +18,7 @@ import { SkateparkConseilComponent } from './page/skatepark-conseil/skatepark-co
 import { BackOfficeComponent } from './page/back-office/back-office.component';
 import { TeamCardOfficeComponent } from './components/back-office/team-card-office/team-card-office.component';
 import { ActionOfficeComponent } from './components/back-office/action-office/action-office.component';
+import { TeamCardComponent } from './components/simpleComponents/team-card/team-card.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import { ActionOfficeComponent } from './components/back-office/action-office/ac
     BackOfficeComponent,
     TeamCardOfficeComponent,
     ActionOfficeComponent,
+    TeamCardComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,20 @@
+.team-card-container {
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-around;
+	column-gap: 15px;
+  row-gap: 40px;
+	@media (min-width: 500px) {
+		 column-gap: 50px;
+	}
+	h2 {
+		 width: 100%;
+	}
+}
+
+.preview {
+	object-fit: cover;
+	width: 180px;
+	height: 250px;
+	border-radius: 3px;
+}
