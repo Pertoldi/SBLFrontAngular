@@ -15,7 +15,9 @@ import { TeamComponent } from './components/acceuil/team/team.component';
 import { ActionsComponent } from './components/acceuil/actions/actions.component';
 import { PageActionComponent } from './page/page-action/page-action.component';
 import { SkateparkConseilComponent } from './page/skatepark-conseil/skatepark-conseil.component';
-import { UserBackOfficeComponent } from './page/user-back-office/user-back-office.component';
+import { BackOfficeComponent } from './page/back-office/back-office.component';
+import { TeamCardOfficeComponent } from './components/back-office/team-card-office/team-card-office.component';
+import { ActionOfficeComponent } from './components/back-office/action-office/action-office.component';
 
 
 @NgModule({
@@ -32,7 +34,9 @@ import { UserBackOfficeComponent } from './page/user-back-office/user-back-offic
     ActionsComponent,
     PageActionComponent,
     SkateparkConseilComponent,
-    UserBackOfficeComponent,
+    BackOfficeComponent,
+    TeamCardOfficeComponent,
+    ActionOfficeComponent,
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,16 @@
+<div class="marges-lateral my-5">
+	<h1>Back Office</h1>
+	<h2>Choissiser la section que vous voulez modifiez.</h2>
+	<ul>
+		<li><button class="btn btn-primary" [disabled]="teamCardOffice" (click)="onTeamCardOffice()">Team Card
+				Office</button></li>
+		<li><button class="btn btn-primary" [disabled]="actionOffice" (click)="onActionOffice()">Action Office</button>
+		</li>
+	</ul>
+
+	<!-- component en fonction du boutons sélectionné -->
+	<div class="mt-5">
+		<app-team-card-office *ngIf="teamCardOffice"></app-team-card-office>
+		<app-action-office *ngIf="actionOffice"></app-action-office>
+	</div>
+</div>
