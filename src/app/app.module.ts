@@ -19,6 +19,7 @@ import { BackOfficeComponent } from './page/back-office/back-office.component';
 import { TeamCardOfficeComponent } from './components/back-office/team-card-office/team-card-office.component';
 import { ActionOfficeComponent } from './components/back-office/action-office/action-office.component';
 import { TeamCardComponent } from './components/simpleComponents/team-card/team-card.component';
+import { CardActionComponent } from './components/simpleComponents/card-action/card-action.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { TeamCardComponent } from './components/simpleComponents/team-card/team-
     TeamCardOfficeComponent,
     ActionOfficeComponent,
     TeamCardComponent,
+    CardActionComponent,
   ],
   imports: [
     BrowserModule,

@@ -17,9 +17,9 @@ export class ActionOfficeComponent implements OnInit {
 	sliderUrl = ["../../../../assets/backOffice/Skate-Player-Motivation-salle-de-sport-Stickers-muraux-pour-chambre-d-adolescents-Design-individuel-3d-affiche.jpg"]
 
 	// For card action preview
-	title = ""
-	date = ""
-	description = ""
+	title = "Titre"
+	date:any = new Date()
+	description = "description"
 
 
 	constructor(private formBuilder: FormBuilder) { }
@@ -67,7 +67,12 @@ export class ActionOfficeComponent implements OnInit {
 				this.sliderUrl.push(e.target.result)
 			}
 		}
+	}
 
+	previewCardAction(event: Event, input: string) {
+		if (input == "title") this.title = (event.target as HTMLInputElement).value
+		else if (input == "date") this.date = (event.target as HTMLInputElement).value
+		else if (input == "description")this.description = (event.target as HTMLInputElement).value
 	}
 
 }

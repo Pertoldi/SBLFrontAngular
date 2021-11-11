@@ -9,41 +9,42 @@
 					<div class="form-group mb-3">
 						<label for="form-event-title">Titre</label>
 						<input type="text" class="form-control" id="form-event-title" placeholder="titre" maxlength="50"
-							formControlName="title">
+							formControlName="title" (change)="previewCardAction($event,'title')">
 					</div>
 					<div class="form-group mb-3">
 						<label for="form-event-date">Date</label>
-						<input type="date" class="form-control" id="form-event-date"
-							maxlength="50" formControlName="date">
+						<input type="date" class="form-control" id="form-event-date" maxlength="50" formControlName="date"
+							(change)="previewCardAction($event, 'date')">
 					</div>
 
 					<label for="form-event-cardImg" class="mt-2">Selectionner l'image de la carte événement
 						:</label> <br>
-					<input type="file" accept="image/png, image/jpeg" id="form-event-cardImg" formControlName="imageCard" (change)="onImageCardSelected($event)">
+					<input type="file" accept="image/png, image/jpeg" id="form-event-cardImg" formControlName="imageCard"
+						(change)="onImageCardSelected($event)">
 					<div class="form-group mb-3">
 						<label for="form-event-description">Description de la carte</label>
 						<textarea type="text" class="form-control" id="form-event-card-description"
-							placeholder="Description de la carte" maxlength="500" rows="3"
-							formControlName="description"></textarea>
+							placeholder="Description de la carte" maxlength="500" rows="3" formControlName="description"
+							(change)="previewCardAction($event, 'description')"></textarea>
 					</div>
 
 				</div>
 
 				<!-- Preview card action -->
 				<div class="col-12 col-lg-6">
+					<h3 class="fw-bold my-3 text-center">Preview</h3>
+					<div class="preview-card-container">
 
-					
-					<div class="card mb-4">
-						<img class="card-img-top"
-							src="{{cardUrl}}"
-							alt="Card image cap">
-						<div class="card-body">
-							<div class="card__flexAlign">
-								<h3 class="card-title">{{title}}</h3> <span class="card__date">{{date}}</span>
+						<div class="card mb-4">
+							<img class="card-img-top" src="{{cardUrl}}" alt="Card image cap">
+							<div class="card-body">
+								<h3 class="card-title fw-bold">{{title}}</h3>
+								<p class="card-text">{{description}}</p>
+								<div class="flex-container">
+									<a class="btn btn-dark mt-3">Voir</a>
+									<span class="card__date">{{date | date: 'dd/MM/yyyy'}}</span>
+								</div>
 							</div>
-							<p class="card-text">{{description}}
-							</p>
-							<a class="btn btn-dark mt-3">Voir</a>
 						</div>
 					</div>
 
@@ -92,7 +93,7 @@
 
 	<!-- =============================================== CAROUSEL POUR DELETE LES EVENTS ======================================================= -->
 	<div class="underline-title"></div>
-	<h2>Suppression d'evenements</h2>
+	<h2>Suppression / Modification</h2>
 	<div class="container my-4">
 		<!--Carousel Wrapper-->
 		<div id="multi-item-example" class="carousel slide carousel-multi-item" data-interval="false">
