@@ -1,0 +1,17 @@
+.slider-render {
+	display: flex;
+	gap: 15px;
+	flex-wrap: wrap;
+}
+
+.slider-render > img {
+	height: 150px;
+	width: auto;
+	object-fit: cover;
+}
+
+// CARD EXAMPLE
+
+.card-img-top {
+	object-fit: cover !important; //car on change to object fit constain dans la page event
+}

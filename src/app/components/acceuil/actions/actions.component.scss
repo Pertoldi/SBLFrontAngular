@@ -1,7 +1,7 @@
 @import "../../../../variables.scss";
 
 .evenement{
-	&-carte {
+	&-card {
 		 border-radius: 25px;
 		 background-color: $color-grey;
 		 display: flex;
@@ -30,6 +30,8 @@
 		 }
 	}
 }
+
+// TODO refactor and make a components
 
 .card-img-top {
 	object-fit: cover !important; //car on change to object fit constain dans la page event
