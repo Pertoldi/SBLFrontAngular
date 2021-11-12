@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ActionsService } from 'src/app/services/actions.service';
 
 @Component({
 	selector: 'app-action-office',
@@ -10,7 +11,7 @@ export class ActionOfficeComponent implements OnInit {
 
 	actionForm!: FormGroup
 	actionCardFile!: File
-	sliderActionFiles!: FileList | null
+	sliderActionFiles!: FileList
 
 	// For image preview
 	cardUrl = "../../../../assets/backOffice/Skate-Player-Motivation-salle-de-sport-Stickers-muraux-pour-chambre-d-adolescents-Design-individuel-3d-affiche.jpg"
@@ -18,14 +19,17 @@ export class ActionOfficeComponent implements OnInit {
 
 	// For card action preview
 	title = "Titre"
-	date:any = new Date()
+	date: any = new Date()
 	description = "description"
 
 
-	constructor(private formBuilder: FormBuilder) { }
+	constructor(private formBuilder: FormBuilder, private actionsService: ActionsService) { }
 
 	ngOnInit(): void {
 		this.initActionForm()
+		this.actionsService.getActions().then(
+
+		)
 	}
 
 	initActionForm() {
@@ -41,7 +45,25 @@ export class ActionOfficeComponent implements OnInit {
 	}
 
 	onSubmitActionForm() {
+		const bodyPost = {
+			title: this.actionForm.get('title')!.value,
+			date: this.actionForm.get('date')!.value,
+			description: this.actionForm.get('description')!.value,
+			textEvent: this.actionForm.get('textEvent')!.value,
+			urlYoutube: this.actionForm.get('urlYoutube')!.value,
+			userId: sessionStorage.getItem('userId')
+		}
 
+		const formData = new FormData()
+		formData.append('data', JSON.stringify(bodyPost))
+		formData.append('imageCard', this.actionCardFile)
+		for (const file of this.sliderActionFiles) {
+			formData.append('imageSlider', file)
+		}
+
+		this.actionsService.saveAction(formData).then(res => {
+		console.log('res is :', res)
+		})	
 	}
 
 	onImageCardSelected(event: Event) {
@@ -56,7 +78,7 @@ export class ActionOfficeComponent implements OnInit {
 	}
 
 	onSliderFileSelected(event: Event) {
-		this.sliderActionFiles = (event.target as HTMLInputElement).files
+		this.sliderActionFiles = (event.target as HTMLInputElement).files!
 
 		// Preview
 		this.sliderUrl = []
@@ -72,7 +94,11 @@ export class ActionOfficeComponent implements OnInit {
 	previewCardAction(event: Event, input: string) {
 		if (input == "title") this.title = (event.target as HTMLInputElement).value
 		else if (input == "date") this.date = (event.target as HTMLInputElement).value
-		else if (input == "description")this.description = (event.target as HTMLInputElement).value
+		else if (input == "description") this.description = (event.target as HTMLInputElement).value
 	}
 
+
+	callBackActionDeleted() {
+		this.ngOnInit()
+	}
 }

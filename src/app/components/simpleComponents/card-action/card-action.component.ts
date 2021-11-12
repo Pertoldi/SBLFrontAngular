@@ -1,4 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { ActionsService } from 'src/app/services/actions.service';
 
 @Component({
   selector: 'app-card-action',
@@ -10,10 +11,22 @@ export class CardActionComponent implements OnInit {
 
   @Input() action!: any;
   @Input() button: Boolean = false
-  constructor() { }
+  
+  @Output() callbackEvent = new EventEmitter() //This callback is send to the parent to reload the view after a card is deleted
+  constructor(private actionsService: ActionsService) { }
 
   ngOnInit(): void {
-    console.log('this.action is :', this.action)
+  }
+
+
+  onBtnDelete(event: Event) {
+    const id = (event.target as HTMLElement)!.id
+
+    if (confirm("Etes vous sûr de vouloir supprimer cette carte?")) {
+      this.actionsService.deleteAction(id).then(() => {
+        this.callbackEvent.emit() // to allow the parent to reload his view
+      })
+    }
   }
 
 }
