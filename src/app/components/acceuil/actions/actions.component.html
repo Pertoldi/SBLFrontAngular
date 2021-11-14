@@ -15,6 +15,7 @@
 				<!-- bloc = 3 actions, c'est pour la création du caroussel 3 actions par 3 actions -->
 				<div class="carousel-item" *ngFor="let bloc of blocActions; let index = index" [ngClass]="isActive(index)">
 					<div class="row">
+						<!-- Les cards du caroussel -->
 						<div class="col-md-4" *ngFor="let action of bloc">
 							<app-card-action [action]="action"></app-card-action>
 						</div>

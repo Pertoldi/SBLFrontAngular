@@ -22,14 +22,33 @@ export class ActionOfficeComponent implements OnInit {
 	date: any = new Date()
 	description = "description"
 
+	// To display the caroussel of actions
+	actions: any
+	blocActions: Array<any> = []; //This variable is use to store 3 actions(les anciens evenment) pour les afficher 3 par 3 dans le caroussel
 
 	constructor(private formBuilder: FormBuilder, private actionsService: ActionsService) { }
 
 	ngOnInit(): void {
 		this.initActionForm()
-		this.actionsService.getActions().then(
+		this.initActionSlider()
+	}
 
-		)
+	initActionSlider() {
+		console.log("INIT du caroussel");
+		this.blocActions = []
+		this.actionsService.getActions().then((serverActions) => {
+			this.actions = serverActions
+	
+			// this loop initialize blocActions
+			for (let i = 0; i < Math.floor(this.actions.length / 3) + 1; i++) {
+			  this.blocActions.push([])
+			}
+	
+			for (let i = 0; i < this.actions.length; i++) {
+			  let indexBlocActions = Math.floor(i / 3)//Divide by 3 because we want 3 item by caroussel view
+			  this.blocActions[indexBlocActions].push(this.actions[i])
+			}
+		 })
 	}
 
 	initActionForm() {
@@ -62,8 +81,9 @@ export class ActionOfficeComponent implements OnInit {
 		}
 
 		this.actionsService.saveAction(formData).then(res => {
-		console.log('res is :', res)
-		})	
+			console.log('res is :', res)
+			this.initActionSlider() 
+		})
 	}
 
 	onImageCardSelected(event: Event) {
@@ -97,8 +117,18 @@ export class ActionOfficeComponent implements OnInit {
 		else if (input == "description") this.description = (event.target as HTMLInputElement).value
 	}
 
+	isActive(i: number) {
+		if (i === 0) {
+			return 'active'
+		}
+		else {
+			return ''
+		}
+	}
 
 	callBackActionDeleted() {
-		this.ngOnInit()
+		console.log('CALLBACK btn suppr');
+		
+		this.initActionSlider()//Pour ne plus montrer l' action  qui a été delete
 	}
 }

@@ -88,7 +88,7 @@
 			</div>
 		</div>
 
-		<button type="submit" class="btn btn-success mb-4">Ajouter l'evenement</button>
+		<button type="submit" class="btn btn-success mb-4" [disabled]="!actionForm.valid">Ajouter l'evenement</button>
 	</form>
 
 	<!-- =============================================== CAROUSEL POUR DELETE LES EVENTS ======================================================= -->
@@ -97,9 +97,17 @@
 	<div class="container my-4">
 		<!--Carousel Wrapper-->
 		<div id="multi-item-example" class="carousel slide carousel-multi-item" data-interval="false">
-<!-- TODO ajouter les components card Actions  avec option [button] et les faires -->
 			<!--Slides-->
 			<div class="carousel-inner" role="listbox" id="carousel-inner">
+
+				<div class="carousel-item" *ngFor="let bloc of blocActions; let index = index" [ngClass]="isActive(index)">
+					<div class="row">
+						<!-- Les cards du caroussel -->
+						<div class="col-md-4" *ngFor="let action of bloc">
+							<app-card-action [action]="action" [button]="true" (callbackEvent)="callBackActionDeleted()"></app-card-action>
+						</div>
+					</div>
+				</div>
 
 				<a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev">
 					<span class="carousel-control-prev-icon" aria-hidden="true"></span>

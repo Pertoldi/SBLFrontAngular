@@ -61,7 +61,22 @@ export class ActionsService {
 
 	deleteAction(id:String) {
 		return new Promise<any>((resolve, reject) => {
-			
+			const token = sessionStorage.getItem('token')
+
+			const httpOptions = {
+				headers: new HttpHeaders({
+					'Authorization': `Bearer ${token}`
+				})
+			}
+
+			this.http.delete(`${this.serverNode}/api/event/${id}`, httpOptions).subscribe(
+				res => {
+					resolve(res)
+				},
+				error => {
+					reject(error)
+				}
+			)
 		})
 
 	}

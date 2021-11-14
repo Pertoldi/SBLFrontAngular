@@ -22,7 +22,7 @@ export class CardActionComponent implements OnInit {
   onBtnDelete(event: Event) {
     const id = (event.target as HTMLElement)!.id
 
-    if (confirm("Etes vous sûr de vouloir supprimer cette carte?")) {
+    if (confirm("Etes vous sûr de vouloir supprimer cette action?")) {
       this.actionsService.deleteAction(id).then(() => {
         this.callbackEvent.emit() // to allow the parent to reload his view
       })

@@ -8,11 +8,14 @@ import { Subject } from 'rxjs';
 })
 export class UserService {
   isAuth: boolean = false
+  isAdmin: boolean = false
   isAuthSubject = new Subject<boolean>()
+  isAdminSubject = new Subject<boolean>()
   serverNode: string = "http://localhost:3000"
 
   constructor(private http: HttpClient, private router: Router) {
     this.initIsAuthSubject()
+    this.initIsAdminSubject()
   }
 
 
@@ -21,13 +24,27 @@ export class UserService {
     this.emitAuthSubject()
   }
 
+  async initIsAdminSubject() {
+    this.isAdmin = await this.isConnectAsAdmin()
+    this.emitAdminSubject()
+  }
+
   emitAuthSubject() {
     this.isAuthSubject.next(this.isAuth)
   }
 
-  setIsAuthToFalse(bol:boolean) {
+  emitAdminSubject() {
+    this.isAdminSubject.next(this.isAdmin)
+  }
+
+  setIsAuthToFalse(bol: boolean) {
     this.isAuth = false
     this.emitAuthSubject()
+  }
+
+  setIsAdminToFalse(bol: boolean) {
+    this.isAdmin = false
+    this.emitAdminSubject()
   }
 
   isConnect(): boolean | Promise<boolean> {
@@ -40,7 +57,7 @@ export class UserService {
     }
 
     return new Promise<boolean>(
-      (resolve, reject) => {
+      (resolve, reject) => {//TODO test sans le header pour voir si ca fonctionne(normalement oui)
         const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Accept', 'application/json').set('Content-Type', 'application/json')
         this.http.post(`${this.serverNode}/api/auth/isConnect`, JSON.stringify({ token, userId }), { 'headers': headers }).subscribe(
           (res) => {
@@ -58,6 +75,34 @@ export class UserService {
     )
   }
 
+  isConnectAsAdmin(): boolean | Promise<boolean> {
+    // return false
+    let token = sessionStorage.getItem('token')
+    let userId = sessionStorage.getItem('userId')
+    if (token == null || userId == null) {
+      this.isAuth = false
+      this.emitAdminSubject()
+      return false
+    }
+    return new Promise<boolean>((resolve, reject) => {
+      const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Accept', 'application/json').set('Content-Type', 'application/json')
+      this.http.post(`${this.serverNode}/api/auth/isAdmin`,  JSON.stringify({ token, userId }), { 'headers': headers }).subscribe(
+        (res) => {
+          this.isAuth = true
+          this.emitAuthSubject()
+          resolve(true)
+        },
+        (error) => {
+          this.isAuth = false
+          this.emitAuthSubject()
+          reject(false)
+        }
+      )
+
+    })
+    // TODO
+  }
+
   signInUser(email: string, password: string) {
     return new Promise<any>((resolve, reject) => {
       const headers = new HttpHeaders().set('Accept', 'application/json').set('Content-Type', 'application/json')
@@ -67,6 +112,7 @@ export class UserService {
           sessionStorage.setItem('userId', res.userId)
           this.isAuth = true
           this.emitAuthSubject()
+          this.initIsAdminSubject()
           this.router.navigate([''])
           resolve(res)
         },
