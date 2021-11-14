@@ -26,7 +26,7 @@ export class ActionsComponent implements OnInit {
       }
 
       for (let i = 0; i < this.actions.length; i++) {
-        let indexBlocActions = Math.floor(i / 3)//Divide by 3 becouase we want 3 item by caroussel view
+        let indexBlocActions = Math.floor(i / 3)//Divide by 3 because we want 3 item by caroussel view
         this.blocActions[indexBlocActions].push(this.actions[i])
       }
     })

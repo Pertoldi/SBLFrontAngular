@@ -1,0 +1,38 @@
+.slider-render {
+	display: flex;
+	gap: 15px;
+	flex-wrap: wrap;
+}
+
+.slider-render > img {
+	height: 150px;
+	width: auto;
+	object-fit: cover;
+}
+
+// CARD EXAMPLE
+.preview-card-container {
+	display: flex;
+	justify-content: center;
+}
+
+.card{
+	box-shadow: 0px 0px 4px 1px rgba(119, 119, 119, 0.55);
+	width: 300px;
+	&-img-top {
+		width: 300px;
+		height: 250px;
+		object-fit: cover;
+	}
+}
+
+.flex-container{
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+.carousel-control-next, .carousel-control-prev {
+	background-color: #00000040;
+	width: 35px;
+}

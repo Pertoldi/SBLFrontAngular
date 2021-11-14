@@ -4,6 +4,7 @@ import { LoginComponent } from './page/login/login.component';
 import { AccueilComponent } from './page/accueil/accueil.component';
 import { PageActionComponent } from './page/page-action/page-action.component';
 import { SkateparkConseilComponent } from './page/skatepark-conseil/skatepark-conseil.component';
+import { BackOfficeComponent } from './page/back-office/back-office.component';
 
 
 const routes: Routes = [
@@ -11,6 +12,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'action/:id', component: PageActionComponent},
   { path: 'skateparkConseil', component: SkateparkConseilComponent},
+  { path: 'backOffice', component: BackOfficeComponent},
   { path: '**', redirectTo: ''}
 ];
 const routerOptions: ExtraOptions = {

@@ -32,7 +32,6 @@ export class LoginComponent implements OnInit {
 
 		console.log(this.loginForm);
 		this.userService.signInUser(email, password)
-		//TODO post request with user Service Add to this service a subject to keep traking when the user is co or not
 	}
 
 	initSigninForm() {

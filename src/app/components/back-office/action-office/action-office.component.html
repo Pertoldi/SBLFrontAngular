@@ -1,0 +1,129 @@
+<h2 class="fw-bold">Actions office</h2>
+<div class="marges-lateral">
+	<form [formGroup]="actionForm" (ngSubmit)="onSubmitActionForm()" enctype="multipart/form-data">
+		<div class="container-fluid">
+
+			<div class="row">
+				<div class="col-12 col-lg-6">
+					<h3 class="fw-bold mb-3">Création de la carte action</h3>
+					<div class="form-group mb-3">
+						<label for="form-event-title">Titre</label>
+						<input type="text" class="form-control" id="form-event-title" placeholder="titre" maxlength="50"
+							formControlName="title" (change)="previewCardAction($event,'title')">
+					</div>
+					<div class="form-group mb-3">
+						<label for="form-event-date">Date</label>
+						<input type="date" class="form-control" id="form-event-date" maxlength="50" formControlName="date"
+							(change)="previewCardAction($event, 'date')">
+					</div>
+
+					<label for="form-event-cardImg" class="mt-2">Selectionner l'image de la carte événement
+						:</label> <br>
+					<input type="file" accept="image/png, image/jpeg" id="form-event-cardImg" formControlName="imageCard"
+						(change)="onImageCardSelected($event)">
+					<div class="form-group mb-3">
+						<label for="form-event-description">Description de la carte</label>
+						<textarea type="text" class="form-control" id="form-event-card-description"
+							placeholder="Description de la carte" maxlength="500" rows="3" formControlName="description"
+							(change)="previewCardAction($event, 'description')"></textarea>
+					</div>
+
+				</div>
+
+				<!-- Preview card action -->
+				<div class="col-12 col-lg-6">
+					<h3 class="fw-bold my-3 text-center">Preview</h3>
+					<div class="preview-card-container">
+
+						<div class="card mb-4">
+							<img class="card-img-top" src="{{cardUrl}}" alt="Card image cap">
+							<div class="card-body">
+								<h3 class="card-title fw-bold">{{title}}</h3>
+								<p class="card-text">{{description}}</p>
+								<div class="flex-container">
+									<a class="btn btn-dark mt-3">Voir</a>
+									<span class="card__date">{{date | date: 'dd/MM/yyyy'}}</span>
+								</div>
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+
+		<p class="text-center text-lg-start">--------------------------------------------------------------</p>
+		<div class="row">
+			<h3 class="fw-bold my-3">Création de la page action</h3>
+
+			<!-- TODO un bouton ADD an image et ajouter les images une par une -->
+			<!-- TODO ajouter infos: 10 img max -->
+			<h3 class="text-decoration-underline">Slider</h3>
+			<div class="form-group mb-3">
+				<label for="form-event-slider" class="mt-2">Selectionner les images du Slider : </label>
+				<input type="file" accept="image/png, image/jpeg" id="form-event-slider" multiple
+					formControlName="imageSlider" (change)="onSliderFileSelected($event)">
+			</div>
+			<!-- Rendu du Slider -->
+			<div class="slider-render">
+				<img *ngFor="let url of sliderUrl;" src="{{url}}" alt="image preview du slider">
+			</div>
+
+			<h3 class="text-decoration-underline my-3">Page événement</h3>
+
+			<!-- Text de l'événement -->
+			<div class="form-group mb-3">
+				<label for="form-event-text">text pour la page événement</label>
+				<textarea type="text" class="form-control" id="form-event-text"
+					placeholder="Texte qui sera présent sur la page de l'événement associé" maxlength="2000" rows="10"
+					formControlName="textEvent"></textarea>
+			</div>
+
+			<!-- liste de video en rapport avec l'événement -->
+			<div class="form-group mb-3">
+				<label for="form-event-urlYoutube">URL YOUTUBE</label>
+				<textarea type="text" class="form-control" id="form-event-urlYoutube"
+					placeholder="Insérer les URLs des videos de la chaine youtube sous la forme: URL,URL,URL   sans espaces "
+					maxlength="500" rows="3" formControlName="urlYoutube"></textarea>
+			</div>
+		</div>
+
+		<button type="submit" class="btn btn-success mb-4" [disabled]="!actionForm.valid">Ajouter l'evenement</button>
+	</form>
+
+	<!-- =============================================== CAROUSEL POUR DELETE LES EVENTS ======================================================= -->
+	<div class="underline-title"></div>
+	<h2>Suppression / Modification</h2>
+	<div class="container my-4">
+		<!--Carousel Wrapper-->
+		<div id="multi-item-example" class="carousel slide carousel-multi-item" data-interval="false">
+			<!--Slides-->
+			<div class="carousel-inner" role="listbox" id="carousel-inner">
+
+				<div class="carousel-item" *ngFor="let bloc of blocActions; let index = index" [ngClass]="isActive(index)">
+					<div class="row">
+						<!-- Les cards du caroussel -->
+						<div class="col-md-4" *ngFor="let action of bloc">
+							<app-card-action [action]="action" [button]="true" (callbackEvent)="callBackActionDeleted()"></app-card-action>
+						</div>
+					</div>
+				</div>
+
+				<a class="carousel-control-prev" href="#multi-item-example" role="button" data-slide="prev">
+					<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+					<span class="sr-only">Previous</span>
+				</a>
+				<a class="carousel-control-next" href="#multi-item-example" role="button" data-slide="next">
+					<span class="carousel-control-next-icon" aria-hidden="true"></span>
+					<span class="sr-only">Next</span>
+				</a>
+
+			</div>
+			<!--/.Slides-->
+
+		</div>
+		<!--/.Carousel Wrapper-->
+	</div>
+
+	<div id="dynamiqueModifyForm"></div>
+</div>

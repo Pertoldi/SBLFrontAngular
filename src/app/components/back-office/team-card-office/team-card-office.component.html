@@ -1,0 +1,78 @@
+<h2 class="fw-bold">Team card office</h2>
+<form [formGroup]="teamCardForm" (ngSubmit)="onSubmitTeamCardForm()" enctype="multipart/form-data">
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class=" col-12 col-md-6">
+				<!-- TODO Refactor deltee image barack obama mettre un skateur pro -->
+				<div class="form-group mb-3">
+					<label for="form-team-title">Choisissez un titre:</label>
+					<select class="form-select" aria-label="Select option to chose the title of the member"
+						id="form-team-title" formControlName="title">
+						<option selected>Adherent</option>
+						<option>Secrétaire</option>
+						<option>Trésorier</option>
+						<option>President</option>
+						<option>Comité Directeur</option>
+					</select>
+				</div>
+
+				<div class="form-group mb-3">
+					<label for="form-team-prenom">Prenom</label>
+					<input type="text" class="form-control" id="form-team-prenom" placeholder="Entrez votre prénom"
+						maxlength="50" formControlName="prenom">
+				</div>
+
+				<div class="form-group mb-3">
+					<label for="form-team-nom">Nom</label>
+					<input type="text" class="form-control" id="form-team-nom" placeholder="Entrez votre nom" maxlength="50"
+						formControlName="nom">
+				</div>
+
+				<div class="row">
+					<div class="col-6">
+						<div class="form-group mb-3">
+							<label for="form-team-image">portrait</label>
+							<input type="file" class="form-control" accept="image/png, image/jpeg" formControlName="image"
+								id="form-team-image" (change)="onFileSelected($event)">
+						</div>
+					</div>
+					<div class="col-6">
+						<img [src]="url" alt="Preview input file" class="preview">
+					</div>
+				</div>
+
+				<div class="form-group mb-3">
+					<label for="form-team-text">Description</label>
+					<textarea class="form-control" type="text" id="form-team-text" rows="10" cols="40"
+						formControlName="description"></textarea>
+				</div>
+				<p class="text-danger mb-2" #feedback></p>
+
+				<button type="submit" class="btn btn-success mb-4" [disabled]="!teamCardForm.valid">Ajouter</button>
+
+			</div>
+
+			<div class=" col-12 col-md-6">
+				<h3>image d'exemple:</h3>
+				<img src="../../../../assets/backOffice/TeamCardExemple.png" alt="Image tuto du formulaire Team">
+			</div>
+		</div>
+	</div>
+
+</form>
+
+<div class="underline-title"></div>
+
+<h2>Suppression des TeamCards</h2>
+
+<div>
+
+	<div class="team-card-container">
+		<app-team-card *ngFor="let card of teamCard" [card]="card" [button]="true"
+			(callbackEvent)="callBackTeamCardDeleted()"></app-team-card>
+	</div>
+
+</div>
+
+<div id="dynamicTeamCard"></div>

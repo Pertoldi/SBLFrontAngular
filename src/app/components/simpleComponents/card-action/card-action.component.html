@@ -1,0 +1,16 @@
+<div class="card mb-4">
+	<img class="card-img-top" src="{{action.imageCardUrl}}" alt="Card image cap">
+	<div class="card-body">
+		<div class="card__flexAlign">
+			<h3 class="card-title fw-bold">{{action.title}}</h3>
+		</div>
+		<p class="card-text">{{action.description}}</p>
+		<div class="flex-container">
+			<a class="btn btn-dark mt-3" routerLink="/action/{{action._id}}">Voir</a>
+			<span class="card__date">{{action.date }}</span>
+		</div>
+	</div>
+</div>
+
+<button *ngIf="button == true" class="btn btn-danger my-3" id="{{action._id}}" (click)="onBtnDelete($event)">Supprimer</button>
+
