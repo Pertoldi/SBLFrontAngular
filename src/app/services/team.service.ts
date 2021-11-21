@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 	providedIn: 'root'
 })
 export class TeamService {
-	serverNode: string = "http://localhost:3000"
+	serverNode: string = "https://skateboard-lozere.herokuapp.com"
 	constructor(private http: HttpClient) { }
 
 	/**
