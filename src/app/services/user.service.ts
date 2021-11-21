@@ -11,7 +11,7 @@ export class UserService {
   isAdmin: boolean = false
   isAuthSubject = new Subject<boolean>()
   isAdminSubject = new Subject<boolean>()
-  serverNode: string = "http://localhost:3000"
+  serverNode: string = "https://skateboard-lozere.herokuapp.com"
 
   constructor(private http: HttpClient, private router: Router) {
     this.initIsAuthSubject()
