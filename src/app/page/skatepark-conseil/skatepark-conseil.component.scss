@@ -1,16 +1,37 @@
-.event-container {
+.text-container {
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
 	line-height: 1.7rem;
-	.textEvenement {
+	.text-component {
 		max-width: 800px;
 		text-align: center;
-		white-space : pre-wrap;
+		white-space: pre-wrap;
 	}
-	.date {
-		font-size: 0.9rem;
-		text-align: center;
+
+	img {
+		width: 100%;
+	}
+	
+	a
+	 {
+		color: #000;
+		text-decoration: underline;
+	}
+	
+	a:hover,
+	a:focus,
+	a:active {
+		color: var(--bs-primary);
+	}
+}
+
+.skate-list-conseil {
+	all: unset;
+	li {
+		margin: 5px 0 5px 15px;
+		margin-bottom: 20px;
+		text-align: start;
 	}
 }
