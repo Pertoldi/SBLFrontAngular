@@ -1,0 +1,1 @@
+Le fichier dist se place dans le dossier "Sateboard-lozere-frontend" et se push sur le git de skateboard-lozere.
