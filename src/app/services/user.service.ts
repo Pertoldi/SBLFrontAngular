@@ -86,7 +86,7 @@ export class UserService {
     }
     return new Promise<boolean>((resolve, reject) => {
       const headers = new HttpHeaders().set('Authorization', `Bearer ${token}`).set('Accept', 'application/json').set('Content-Type', 'application/json')
-      this.http.post(`${this.serverNode}/api/auth/isAdmin`,  JSON.stringify({ token, userId }), { 'headers': headers }).subscribe(
+      this.http.post(`${this.serverNode}/api/auth/isAdmin`, JSON.stringify({ token, userId }), { 'headers': headers }).subscribe(
         (res) => {
           this.isAuth = true
           this.emitAuthSubject()
@@ -120,8 +120,7 @@ export class UserService {
           reject(error)
         }
       )
-    }
-    )
+    })
   }
 
   createNewUser(lastName: string, firstName: string, address: string, city: string, email: string, password: string) {
