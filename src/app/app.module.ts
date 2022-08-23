@@ -20,6 +20,7 @@ import { TeamCardOfficeComponent } from './components/back-office/team-card-offi
 import { ActionOfficeComponent } from './components/back-office/action-office/action-office.component';
 import { TeamCardComponent } from './components/simpleComponents/team-card/team-card.component';
 import { CardActionComponent } from './components/simpleComponents/card-action/card-action.component';
+import { SchoolComponent } from './components/school/school.component';
 
 
 @NgModule({
@@ -41,6 +42,7 @@ import { CardActionComponent } from './components/simpleComponents/card-action/c
     ActionOfficeComponent,
     TeamCardComponent,
     CardActionComponent,
+    SchoolComponent,
   ],
   imports: [
     BrowserModule,
