@@ -5,7 +5,7 @@ import { Injectable } from '@angular/core';
 	providedIn: 'root'
 })
 export class ActionsService {
-	serverNode: string = "https://skateboard-lozere.herokuapp.com"
+	serverNode: string = "https://sblbackend.onrender.com"
 	constructor(private http: HttpClient) { }
 
 	getActions() {
@@ -47,7 +47,7 @@ export class ActionsService {
 					'Authorization': `Bearer ${token}`
 				})
 			}
-			
+
 			this.http.post(`${this.serverNode}/api/event/`, body, httpOptions).subscribe(
 				res => {
 					resolve(res)
@@ -59,7 +59,7 @@ export class ActionsService {
 		})
 	}
 
-	deleteAction(id:String) {
+	deleteAction(id: String) {
 		return new Promise<any>((resolve, reject) => {
 			const token = sessionStorage.getItem('token')
 
