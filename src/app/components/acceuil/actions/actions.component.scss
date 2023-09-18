@@ -110,4 +110,13 @@
 	justify-content: center;
 	gap: 25px;
 	flex-wrap: wrap;
+
+	&--title {
+		display: flex;
+		flex-direction: column;
+
+		>span {
+			margin-bottom: 5px;
+		}
+	}
 }
